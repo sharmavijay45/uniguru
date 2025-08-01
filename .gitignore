@@ -1,0 +1,283 @@
+# ===================================
+# UniGuru Project .gitignore
+# ===================================
+
+# ===================================
+# Environment Variables & Secrets
+# ===================================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.production
+
+# API Keys and Secrets
+*.key
+*.pem
+*.p12
+*.pfx
+secrets/
+config/secrets.json
+
+# ===================================
+# Node.js & NPM
+# ===================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Package manager lock files (keep one, ignore others)
+# package-lock.json  # Uncomment if using yarn
+# yarn.lock         # Uncomment if using npm
+# pnpm-lock.yaml    # Uncomment if using npm/yarn
+
+# ===================================
+# Frontend (React/Vite) Specific
+# ===================================
+frontend/dist/
+frontend/dist-ssr/
+frontend/build/
+frontend/.vite/
+frontend/.next/
+frontend/out/
+
+# Vite
+frontend/vite.config.js.timestamp-*
+frontend/vite.config.ts.timestamp-*
+
+# ===================================
+# Backend (Node.js/Express) Specific
+# ===================================
+server/dist/
+server/build/
+server/uploads/
+server/logs/
+server/temp/
+server/tmp/
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# ===================================
+# Development & IDE Files
+# ===================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# VS Code settings (uncomment if you want to ignore)
+# .vscode/settings.json
+# .vscode/tasks.json
+# .vscode/launch.json
+# .vscode/extensions.json
+
+# ===================================
+# Operating System Files
+# ===================================
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ===================================
+# Logs & Runtime Files
+# ===================================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+.nyc_output/
+
+# ===================================
+# Build & Distribution Files
+# ===================================
+dist/
+build/
+out/
+.next/
+.nuxt/
+.cache/
+.parcel-cache/
+.vite/
+
+# ===================================
+# Testing
+# ===================================
+coverage/
+.nyc_output/
+.jest/
+test-results/
+playwright-report/
+test-results.xml
+
+# ===================================
+# Deployment & Production
+# ===================================
+.vercel/
+.netlify/
+.firebase/
+.serverless/
+
+# Docker
+.dockerignore
+Dockerfile.prod
+docker-compose.prod.yml
+
+# ===================================
+# Temporary & Cache Files
+# ===================================
+*.tmp
+*.temp
+.cache/
+.temp/
+.tmp/
+
+# ESLint cache
+.eslintcache
+
+# Prettier cache
+.prettiercache
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional stylelint cache
+.stylelintcache
+
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# ===================================
+# AI & ML Models (if any)
+# ===================================
+*.model
+*.pkl
+*.h5
+*.pb
+models/
+weights/
+
+# ===================================
+# Media & Assets (Large Files)
+# ===================================
+# Uncomment if you want to ignore large media files
+# *.mp4
+# *.avi
+# *.mov
+# *.wmv
+# *.flv
+# *.webm
+# *.mkv
+# *.m4v
+# *.3gp
+# *.mp3
+# *.wav
+# *.flac
+# *.aac
+# *.ogg
+# *.wma
+
+# Large images (uncomment if needed)
+# *.psd
+# *.ai
+# *.sketch
+
+# ===================================
+# Project Specific
+# ===================================
+# Add any project-specific files/folders here
+
+# Backup files
+*.backup
+*.bak
+*.old
+
+# Archive files
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+
+# Documentation builds
+docs/build/
+docs/_build/
+
+# ===================================
+# End of .gitignore
+# ===================================
