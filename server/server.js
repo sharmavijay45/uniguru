@@ -43,11 +43,16 @@ const limiter = rateLimit({
 app.use(limiter);
 
 // CORS configuration
+console.log('🌐 CORS Configuration:');
+console.log('FRONTEND_URL:', process.env.FRONTEND_URL);
+console.log('NODE_ENV:', process.env.NODE_ENV);
+
 app.use(cors({
   origin: [
     process.env.FRONTEND_URL || 'http://localhost:5173',
     'http://localhost:5174',
-    'http://localhost:3000'
+    'http://localhost:3000',
+    'https://www.uni-guru.in'
   ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
@@ -71,6 +76,14 @@ if (process.env.NODE_ENV === 'development') {
 
 // Health check endpoint
 app.get('/health', (req, res) => {
+  res.status(200).json({
+    status: 'OK',
+    message: 'UniGuru Server is running',
+    timestamp: new Date().toISOString(),
+    environment: process.env.NODE_ENV
+  });
+});
+app.get('/', (req, res) => {
   res.status(200).json({
     status: 'OK',
     message: 'UniGuru Server is running',

@@ -7,17 +7,25 @@ import User from '../models/User.js';
 export const protect = async (req, res, next) => {
   let token;
 
+  console.log('🔐 Auth Debug:');
+  console.log('Headers:', req.headers.authorization ? 'Authorization header present' : 'No authorization header');
+  console.log('Cookies:', req.cookies.token ? 'Token cookie present' : 'No token cookie');
+  console.log('Origin:', req.headers.origin);
+
   // Check for token in Authorization header
   if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
     token = req.headers.authorization.split(' ')[1];
+    console.log('Token from Authorization header');
   }
   // Check for token in cookies
   else if (req.cookies.token) {
     token = req.cookies.token;
+    console.log('Token from cookies');
   }
 
   // Make sure token exists
   if (!token) {
+    console.log('❌ No token found');
     return res.status(401).json({
       success: false,
       message: 'Not authorized to access this route'
@@ -25,21 +33,26 @@ export const protect = async (req, res, next) => {
   }
 
   try {
+    console.log('🔍 Verifying token...');
     // Verify token
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    console.log('✅ Token verified, user ID:', decoded.id);
 
     // Get user from token
     req.user = await User.findById(decoded.id).select('-password');
 
     if (!req.user) {
+      console.log('❌ User not found in database');
       return res.status(401).json({
         success: false,
         message: 'User not found'
       });
     }
 
+    console.log('✅ User authenticated:', req.user.email);
     next();
   } catch (error) {
+    console.log('❌ Token verification failed:', error.message);
     return res.status(401).json({
       success: false,
       message: 'Not authorized to access this route'
